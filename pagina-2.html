@@ -1,140 +1,243 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mensagem</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Tangerine:wght@700&display=swap" rel="stylesheet" />
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mensagem Revelada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Tangerine:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at 50% 30%, #12264f 0%, #0a1730 45%, #030711 100%);
-  font-family: 'Cinzel Decorative', serif;
-  overflow-x: hidden;
-  padding: 30px 16px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Pergaminho com pergaminho de verdade: textura, manchas e bordas irregulares */
-.pergaminho {
-  position: relative;
-  max-width: 620px;
-  width: 100%;
-  padding: 70px 50px;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(120, 85, 40, 0.28) 0%, transparent 22%),
-    radial-gradient(circle at 85% 20%, rgba(120, 85, 40, 0.22) 0%, transparent 26%),
-    radial-gradient(circle at 25% 85%, rgba(120, 85, 40, 0.25) 0%, transparent 25%),
-    radial-gradient(circle at 90% 90%, rgba(110, 78, 35, 0.3) 0%, transparent 30%),
-    linear-gradient(175deg, #efe0b8 0%, #e3cb97 50%, #d3b377 100%);
-  border-radius: 14px;
-  box-shadow:
-    0 30px 70px rgba(0,0,0,0.75),
-    inset 0 0 60px rgba(96, 66, 26, 0.35);
-  animation: desrolar 1.2s ease-out;
-  text-align: center;
-  color: #4a3115;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 15px;
+      font-family: 'MedievalSharp', cursive;
+      position: relative;
+      background-color: #0b132b;
+      /* "A Noite Estrelada" de Van Gogh */
+      background-image: 
+        radial-gradient(circle at center, rgba(11, 22, 54, 0.4) 0%, rgba(5, 10, 25, 0.85) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1920px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
 
-/* Bordas serrilhadas de papel antigo (topo e base) */
-.pergaminho::before,
-.pergaminho::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 14px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent 0px, transparent 6px,
-    rgba(96, 66, 26, 0.35) 6px, rgba(96, 66, 26, 0.35) 9px
-  );
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 100%);
-}
+    /* Brilho mágico sutil de fundo */
+    .particulas-magicas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(2px 2px at 25% 20%, rgba(255, 245, 170, 0.8), transparent),
+        radial-gradient(2px 2px at 70% 65%, rgba(135, 206, 250, 0.8), transparent),
+        radial-gradient(3px 3px at 80% 30%, rgba(255, 235, 130, 0.9), transparent);
+      animation: cintilar 5s ease-in-out infinite alternate;
+      z-index: 1;
+    }
 
-.pergaminho::before { top: 0; border-top: 3px solid rgba(96,66,26,0.4); border-radius: 14px 14px 0 0; }
-.pergaminho::after  { bottom: 0; border-bottom: 3px solid rgba(96,66,26,0.4); border-radius: 0 0 14px 14px; }
+    @keyframes cintilar {
+      0% { opacity: 0.4; }
+      100% { opacity: 0.85; }
+    }
 
-@keyframes desrolar {
-  from { opacity: 0; transform: scaleY(0.6) translateY(40px); }
-  to { opacity: 1; transform: scaleY(1) translateY(0); }
-}
+    /* Pergaminho antigo aberto */
+    .pergaminho-aberto {
+      position: relative;
+      max-width: 620px;
+      width: 100%;
+      background: 
+        radial-gradient(circle at 50% 50%, #fdf5df 0%, #ebd39f 70%, #caa463 100%);
+      padding: 55px 45px;
+      border-radius: 6px;
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 35px rgba(112, 70, 16, 0.5),
+        inset 0 0 70px rgba(78, 48, 10, 0.35);
+      border: 1px solid rgba(130, 85, 25, 0.4);
+      z-index: 10;
+      animation: desenrolar 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform-origin: center top;
+    }
 
-.saudacao {
-  font-family: 'Tangerine', cursive;
-  font-size: 3.2rem;
-  color: #5c3a12;
-  margin-bottom: 24px;
-  text-shadow: 1px 1px 0 rgba(90, 58, 18, 0.2);
-}
+    /* Borda ornamental interna */
+    .borda-ornamental {
+      position: absolute;
+      inset: 16px;
+      border: 1px dashed rgba(112, 70, 16, 0.45);
+      pointer-events: none;
+      border-radius: 4px;
+    }
 
-.corpo-carta {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 1.02rem;
-  line-height: 1.9;
-  color: #553816;
-  margin-bottom: 30px;
-}
+    @keyframes desenrolar {
+      0% {
+        opacity: 0;
+        transform: scaleY(0.4) scaleX(0.85) translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: scaleY(1) scaleX(1) translateY(0);
+      }
+    }
 
-.corpo-carta p {
-  margin-bottom: 18px;
-}
+    .cabecalho-carta {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-.assinatura {
-  font-family: 'Tangerine', cursive;
-  font-size: 2.6rem;
-  color: #6b4413;
-  text-align: right;
-  margin-top: 12px;
-}
+    .emblema-topo {
+      font-size: 2.3rem;
+      color: #7b4b12;
+      margin-bottom: 6px;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    }
 
-/* Selo decorativo no rodapé do pergaminho */
-.selo-cartao {
-  margin-top: 34px;
-  display: flex;
-  justify-content: center;
-}
+    .titulo-carta {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.6rem;
+      color: #3b2005;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(112, 70, 16, 0.35);
+      padding-bottom: 12px;
+    }
 
-.selo-circulo {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #a01830 0%, #6e0d1e 60%, #450814 100%);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 2px 6px rgba(255,255,255,0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  color: #f3d9a4;
-}
+    .corpo-carta {
+      font-family: 'Tangerine', cursive;
+      font-size: 2.15rem;
+      line-height: 1.35;
+      color: #2e1700;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+      margin-bottom: 25px;
+      text-align: justify;
+    }
 
-@media (max-width: 600px) {
-  .pergaminho { padding: 50px 24px; }
-  .saudacao { font-size: 2.5rem; }
-  .corpo-carta { font-size: 0.92rem; }
-}
-</style>
+    .corpo-carta p {
+      margin-bottom: 18px;
+      text-indent: 25px;
+    }
+
+    .assinatura-area {
+      text-align: right;
+      margin-top: 25px;
+      padding-right: 15px;
+    }
+
+    .assinatura-nome {
+      font-family: 'Tangerine', cursive;
+      font-size: 2.6rem;
+      font-weight: bold;
+      color: #3b2005;
+      line-height: 1;
+    }
+
+    .assinatura-cargo {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 0.85rem;
+      color: #6d4212;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Selo de cera decorativo */
+    .selo-cera {
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle at 35% 35%, #e63946, #800e13 75%, #470005 100%);
+      border-radius: 50%;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffd875;
+      font-size: 1.3rem;
+      border: 2px solid rgba(255, 215, 0, 0.35);
+    }
+
+    /* Botão de retorno */
+    .btn-voltar {
+      margin-top: 45px;
+      z-index: 10;
+      text-decoration: none;
+      color: #ffd875;
+      border: 1px solid rgba(255, 216, 117, 0.45);
+      background: rgba(12, 28, 66, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-voltar:hover {
+      background: rgba(22, 45, 102, 0.95);
+      border-color: #ffd875;
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px rgba(255, 216, 117, 0.5);
+    }
+
+    @media (max-width: 520px) {
+      .pergaminho-aberto {
+        padding: 40px 25px;
+      }
+      .titulo-carta {
+        font-size: 1.3rem;
+      }
+      .corpo-carta {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="particulas-magicas"></div>
 
-<div class="pergaminho">
-  <div class="saudacao">Prezada moh...,</div>
+  <main class="pergaminho-aberto">
+    <div class="borda-ornamental"></div>
 
-  <div class="corpo-carta">
-    <p>Cade meu beijo?</p>
-    <p>Sua presença é o nosso maior presente. Reserve a data e venha viver este momento mágico conosco.</p>
-  </div>
+    <header class="cabecalho-carta">
+      <div class="emblema-topo">✦</div>
+      <h1 class="titulo-carta">Uma Mensagem Importante</h1>
+    </header>
 
-  <div class="assinatura">Com carinho,<br>Não perca!</div>
+    <article class="corpo-carta">
+      <p>
+        Temos o imenso prazer de lhe entregar este pergaminho. Há caminhos que se abrem apenas para aqueles que têm a coragem de procurá-los e a sabedoria de dar o primeiro passo.
+      </p>
+      <p>
+        Que as estrelas guiem a sua jornada e que cada escolha revele mistérios grandiosos e conquistas inesquecíveis ao longo do seu caminho.
+      </p>
 
-  <div class="selo-cartao">
-    <div class="selo-circulo">✨</div>
-  </div>
-</div>
+      <div class="assinatura-area">
+        <div class="assinatura-nome">Com carinho e magia,</div>
+        <div class="assinatura-cargo">Ordem das Estrelas</div>
+      </div>
+    </article>
 
+    <!-- Selo carimbado no rodapé do pergaminho -->
+    <div class="selo-cera">⚡</div>
+  </main>
+
+  <a href="index.html" class="btn-voltar">← Dobrar e fechar carta</a>
 </body>
 </html>
