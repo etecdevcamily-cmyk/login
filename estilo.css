@@ -30,3 +30,16 @@ body {
 body.on .inner-glow {
   opacity: 0.8; /* Acende o brilho */
 }
+h2{
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+p{
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+input{
+    align-items: center;
+}
