@@ -1,13 +1,32 @@
-bory{
-    background-color: #F7E7CE;
+body {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-h2{
-    background-color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
+
+/* Estrutura de metal (Haste e Base) */
+.lamp-base, .cord-line, .cord-bead {
+  fill: #e5e5e5;
+  stroke: #b3b3b3;
+  stroke-width: 1;
 }
-p{
-    background-color: blue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 13px;
+
+/* A Cúpula do Abajur */
+.lamp-shade {
+  fill: #f5f5f5;
+}
+
+/* O Brilho (Desligado por padrão) */
+.inner-glow {
+  fill: #ffdf6d;
+  opacity: 0; /* Começa em 0 (apagado) */
+  filter: blur(10px); /* Deixa a luz esfumaçada */
+  transition: opacity 0.3s ease;
+}
+
+/* Quando o corpo da página tiver a classe "on", a lâmpada acende */
+body.on .inner-glow {
+  opacity: 0.8; /* Acende o brilho */
 }
