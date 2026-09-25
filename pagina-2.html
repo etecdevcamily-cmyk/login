@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A Carta Antiga</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Tangerine:wght@700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 30%, #12264f 0%, #0a1730 45%, #030711 100%);
+  font-family: 'Cinzel Decorative', serif;
+  overflow-x: hidden;
+  padding: 30px 16px;
+}
+
+/* Pergaminho com pergaminho de verdade: textura, manchas e bordas irregulares */
+.pergaminho {
+  position: relative;
+  max-width: 620px;
+  width: 100%;
+  padding: 70px 50px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(120, 85, 40, 0.28) 0%, transparent 22%),
+    radial-gradient(circle at 85% 20%, rgba(120, 85, 40, 0.22) 0%, transparent 26%),
+    radial-gradient(circle at 25% 85%, rgba(120, 85, 40, 0.25) 0%, transparent 25%),
+    radial-gradient(circle at 90% 90%, rgba(110, 78, 35, 0.3) 0%, transparent 30%),
+    linear-gradient(175deg, #efe0b8 0%, #e3cb97 50%, #d3b377 100%);
+  border-radius: 14px;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.75),
+    inset 0 0 60px rgba(96, 66, 26, 0.35);
+  animation: desrolar 1.2s ease-out;
+  text-align: center;
+  color: #4a3115;
+}
+
+/* Bordas serrilhadas de papel antigo (topo e base) */
+.pergaminho::before,
+.pergaminho::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px, transparent 6px,
+    rgba(96, 66, 26, 0.35) 6px, rgba(96, 66, 26, 0.35) 9px
+  );
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 100%);
+}
+
+.pergaminho::before { top: 0; border-top: 3px solid rgba(96,66,26,0.4); border-radius: 14px 14px 0 0; }
+.pergaminho::after  { bottom: 0; border-bottom: 3px solid rgba(96,66,26,0.4); border-radius: 0 0 14px 14px; }
+
+@keyframes desrolar {
+  from { opacity: 0; transform: scaleY(0.6) translateY(40px); }
+  to { opacity: 1; transform: scaleY(1) translateY(0); }
+}
+
+.saudacao {
+  font-family: 'Tangerine', cursive;
+  font-size: 3.2rem;
+  color: #5c3a12;
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 0 rgba(90, 58, 18, 0.2);
+}
+
+.corpo-carta {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: #553816;
+  margin-bottom: 30px;
+}
+
+.corpo-carta p {
+  margin-bottom: 18px;
+}
+
+.assinatura {
+  font-family: 'Tangerine', cursive;
+  font-size: 2.6rem;
+  color: #6b4413;
+  text-align: right;
+  margin-top: 12px;
+}
+
+/* Selo decorativo no rodapé do pergaminho */
+.selo-cartao {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.selo-circulo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a01830 0%, #6e0d1e 60%, #450814 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 2px 6px rgba(255,255,255,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  color: #f3d9a4;
+}
+
+@media (max-width: 600px) {
+  .pergaminho { padding: 50px 24px; }
+  .saudacao { font-size: 2.5rem; }
+  .corpo-carta { font-size: 0.92rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="pergaminho">
+  <div class="saudacao">Prezado(a) Convidado(a),</div>
+
+  <div class="corpo-carta">
+    <p>Temos o prazer de informar que você foi especialmente escolhido(a) para uma celebração única e cheia de encantos.</p>
+    <p>Sua presença é o nosso maior presente. Reserve a data e venha viver este momento mágico conosco.</p>
+  </div>
+
+  <div class="assinatura">Com carinho,<br>Não perca!</div>
+
+  <div class="selo-cartao">
+    <div class="selo-circulo">✨</div>
+  </div>
+</div>
+
+</body>
+</html>
