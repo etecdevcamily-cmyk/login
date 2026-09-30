@@ -4,13 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page - Exercício de Fixação</title>
+    <style>
+        /* Estilos Globais simples para organização visual */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 80px 20px 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .container-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        #home {
+            text-align: center;
+            padding-top: 140px;
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
     <!-- MENU DE NAVEGAÇÃO -->
     <header>
-        <div>🚀 TechAgência</div>
         <nav>
+            <div class="logo">🚀 TechAgência</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#produtos">Produto</a></li>
@@ -21,56 +102,47 @@
         </nav>
     </header>
 
-    <hr>
-
     <!-- SEÇÃO HOME -->
     <section id="home">
         <h1>Transforme suas ideias em realidade digital</h1>
         <p>Criamos soluções modernas, rápidas e sob medida para impulsionar o seu negócio.</p>
     </section>
 
-    <hr>
-
     <!-- SEÇÃO PRODUTO (3 Itens exigidos) -->
     <section id="produtos">
         <h2>Nossos Produtos</h2>
         <p>Soluções prontas para escalar sua operação:</p>
-        
-        <div>
-            <h3>📦 Produto 1: Sistema ERP Cloud</h3>
-            <p>Gestão financeira e de estoque automatizada para pequenas e médias empresas em uma plataforma 100% online.</p>
-        </div>
-
-        <div>
-            <h3>📦 Produto 2: App Delivery Base</h3>
-            <p>Aplicativo de entregas customizável com painel administrativo, integração de rotas e pagamentos integrados.</p>
-        </div>
-
-        <div>
-            <h3>📦 Produto 3: Plataforma E-learning</h3>
-            <p>Ambiente virtual de aprendizagem completo para criar, gerenciar e vender seus cursos online com facilidade.</p>
+        <div class="container-cards">
+            <div class="card">
+                <h3>📦 Produto 1: Sistema ERP Cloud</h3>
+                <p>Gestão financeira e de estoque automatizada para pequenas e médias empresas em uma plataforma 100% online.</p>
+            </div>
+            <div class="card">
+                <h3>📦 Produto 2: App Delivery Base</h3>
+                <p>Aplicativo de entregas customizável com painel administrativo, integração de rotas e pagamentos integrados.</p>
+            </div>
+            <div class="card">
+                <h3>📦 Produto 3: Plataforma E-learning</h3>
+                <p>Ambiente virtual de aprendizagem completo para criar, gerenciar e vender seus cursos online com facilidade.</p>
+            </div>
         </div>
     </section>
-
-    <hr>
 
     <!-- SEÇÃO SERVIÇO (2 Itens exigidos) -->
     <section id="servicos">
         <h2>Nossos Serviços</h2>
         <p>Como podemos ajudar a sua empresa hoje:</p>
-        
-        <div>
-            <h3>🛠️ Serviço 1: Desenvolvimento Web</h3>
-            <p>Criação de sites corporativos, landing pages de alta conversão e e-commerces robustos utilizando as tecnologias mais modernas do mercado.</p>
-        </div>
-
-        <div>
-            <h3>🛠️ Serviço 2: Consultoria de SEO</h3>
-            <p>Otimização completa do seu site para motores de busca, garantindo que sua marca apareça na primeira página do Google e atraia mais clientes.</p>
+        <div class="container-cards">
+            <div class="card">
+                <h3>🛠️ Serviço 1: Desenvolvimento Web</h3>
+                <p>Criação de sites corporativos, landing pages de alta conversão e e-commerces robustos utilizando as tecnologias mais modernas do mercado.</p>
+            </div>
+            <div class="card">
+                <h3>🛠️ Serviço 2: Consultoria de SEO</h3>
+                <p>Otimização completa do seu site para motores de busca, garantindo que sua marca apareça na primeira página do Google e atraia mais clientes.</p>
+            </div>
         </div>
     </section>
-
-    <hr>
 
     <!-- SEÇÃO QUEM SOMOS (Mínimo de 10 linhas de texto exigidas) -->
     <section id="quem-somos">
@@ -81,26 +153,22 @@
         <p>Ao longo dos últimos anos, ajudamos dezenas de empresas a estruturarem sua presença digital do zero, transformando plataformas antigas em ecossistemas modernos e rápidos.</p>
         <p>Trabalhamos com metodologias ágeis que garantem total transparência durante todas as etapas do desenvolvimento do projeto, mantendo você sempre no controle.</p>
         <p>Mais do que simplesmente entregar código estruturado, nós nos envolvemos profundamente na cultura e nos desafios do seu modelo de negócio para propor soluções ideais.</p>
-        <p>Valorizamos a ética, a melhoria contínua e o suporte próximo, assegurando que suas ferramentas nunca fiquem obsoletas em um mercado que muda tão rápido.</p>
+        <p>Valorizamos a ética, a melhoria contínba e o suporte próximo, assegurando que suas ferramentas nunca fiquem obsoletas em um mercado que muda tão rápido.</p>
         <p>Se você procura um parceiro tecnológico de longo prazo focado no seu sucesso, você acabou de encontrar a equipe ideal para a sua jornada.</p>
         <p>Estamos prontos para ouvir seus desafios, entender as suas dores e criar os sistemas digitais necessários para levar sua empresa ao próximo nível técnico.</p>
         <p>Venha construir o futuro do seu negócio conosco e descubra como a tecnologia certa pode otimizar seu tempo e maximizar seus lucros de forma escalável.</p>
     </section>
 
-    <hr>
-
     <!-- SEÇÃO CONTATO -->
     <section id="contato">
         <h2>Contato</h2>
         <p>Entre em contato conosco para solicitar um orçamento personalizado:</p>
-        <div>
+        <div style="margin-top: 20px;">
             <p>📧 <strong>E-mail:</strong> contato@techagencia.com.br</p>
             <p>📞 <strong>Telefone:</strong> (11) 99999-9999</p>
             <p>📍 <strong>Endereço:</strong> Av. Paulista, 1000 - São Paulo/SP</p>
         </div>
     </section>
-
-    <hr>
 
     <!-- FOOTER -->
     <footer>
